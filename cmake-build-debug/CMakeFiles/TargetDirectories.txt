@@ -1,0 +1,3 @@
+/home/sigge/code/cpp/finalproject/cmake-build-debug/CMakeFiles/finalproject.dir
+/home/sigge/code/cpp/finalproject/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/sigge/code/cpp/finalproject/cmake-build-debug/CMakeFiles/rebuild_cache.dir

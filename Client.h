@@ -18,15 +18,16 @@ public:
     Client();
     ~Client();
     void startConnection(const std::string& ipAdress, int port);
-    void sendMessage(const std::string& message);
-    void receiveMessages();
+//    void sendMessage(const std::string& message);
+//    void receiveMessages();
 
 private:
     int clientSocket;
     sockaddr_in serverAddress;
     char buffer[256];
+    static void receiveMessages(int clientSocket);
 
-    static void receiveMessagesThread(Client* client);
+//    static void receiveMessagesThread(Client* client);
 
 
 };

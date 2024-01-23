@@ -96,13 +96,13 @@ int main() {
 
                 client.startConnection(ipAddress, port);
 
-                while (true) {
-                    std::string userInput;
-                    std::getline(std::cin, userInput);
-
-                    // Send the user's input to the server
-                    client.sendMessage(userInput);
-                }
+//                while (true) {
+//                    std::string userInput;
+//                    std::getline(std::cin, userInput);
+//
+//                    // Send the user's input to the server
+//                    client.sendMessage(userInput);
+//                }
 
                 break;
             }

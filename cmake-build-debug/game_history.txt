@@ -90,3 +90,11 @@ Sigge placed X on 5
 SocketPlayer placed O on 3
 Sigge placed X on 9
 ------------------
+pc vs SocketPlayer - Winner: pc
+moves:
+pc placed X on 5
+SocketPlayer placed O on 3
+pc placed X on 2
+SocketPlayer placed O on 1
+pc placed X on 8
+------------------

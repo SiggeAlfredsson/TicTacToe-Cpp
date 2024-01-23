@@ -25,7 +25,7 @@ private:
     int clientSocket;
     sockaddr_in serverAddress;
     char buffer[256];
-    static void receiveMessages(int clientSocket);
+    static void receiveMessages(int clientSocket, bool& serverDisconnected);
 
 //    static void receiveMessagesThread(Client* client);
 

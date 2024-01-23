@@ -16,7 +16,7 @@ Client::~Client() {
     close(clientSocket);
 }
 
-void Client::receiveMessages(int clientSocket) {
+void Client::receiveMessages(int clientSocket, bool& serverDisconnected) {
     char buffer[256];
     memset(buffer, 0, sizeof(buffer));
 
@@ -27,6 +27,7 @@ void Client::receiveMessages(int clientSocket) {
         if (bytesRead <= 0) {
             // Either an error occurred or the server closed the connection
             std::cout << "Server disconnected." << std::endl;
+            serverDisconnected = true;
             break;
         }
 
@@ -55,10 +56,12 @@ void Client::startConnection(const std::string& ipAddress, int port) {
     std::cout << buffer << std::endl;
 
     // Start a separate thread to continuously receive messages
-    std::thread receiveThread(receiveMessages, clientSocket);
+    bool serverDisconnected = false;
+
+    std::thread receiveThread(receiveMessages, clientSocket, std::ref(serverDisconnected));
 
     // Main thread to continuously send messages
-    while (true) {
+    while (!serverDisconnected) {
         std::string userInput;
         std::getline(std::cin, userInput);
 

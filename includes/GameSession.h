@@ -10,7 +10,6 @@ class Server;
 
 
 #include "Player.h"
-#include "History.h"
 #include "GameBoard.h"
 #include <vector>
 

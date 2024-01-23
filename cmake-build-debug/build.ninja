@@ -55,47 +55,35 @@ build CMakeFiles/finalproject.dir/main.cpp.o: CXX_COMPILER__finalproject_unscann
   OBJECT_DIR = CMakeFiles/finalproject.dir
   OBJECT_FILE_DIR = CMakeFiles/finalproject.dir
 
-build CMakeFiles/finalproject.dir/includes/TicTacToe.cpp.o: CXX_COMPILER__finalproject_unscanned_Debug /home/sigge/code/cpp/finalproject/includes/TicTacToe.cpp || cmake_object_order_depends_target_finalproject
-  DEP_FILE = CMakeFiles/finalproject.dir/includes/TicTacToe.cpp.o.d
+build CMakeFiles/finalproject.dir/includes/Player.cpp.o: CXX_COMPILER__finalproject_unscanned_Debug /home/sigge/code/cpp/finalproject/includes/Player.cpp || cmake_object_order_depends_target_finalproject
+  DEP_FILE = CMakeFiles/finalproject.dir/includes/Player.cpp.o.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/finalproject.dir
   OBJECT_FILE_DIR = CMakeFiles/finalproject.dir/includes
 
-build CMakeFiles/finalproject.dir/Player.cpp.o: CXX_COMPILER__finalproject_unscanned_Debug /home/sigge/code/cpp/finalproject/Player.cpp || cmake_object_order_depends_target_finalproject
-  DEP_FILE = CMakeFiles/finalproject.dir/Player.cpp.o.d
+build CMakeFiles/finalproject.dir/includes/GameBoard.cpp.o: CXX_COMPILER__finalproject_unscanned_Debug /home/sigge/code/cpp/finalproject/includes/GameBoard.cpp || cmake_object_order_depends_target_finalproject
+  DEP_FILE = CMakeFiles/finalproject.dir/includes/GameBoard.cpp.o.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/finalproject.dir
-  OBJECT_FILE_DIR = CMakeFiles/finalproject.dir
+  OBJECT_FILE_DIR = CMakeFiles/finalproject.dir/includes
 
-build CMakeFiles/finalproject.dir/GameBoard.cpp.o: CXX_COMPILER__finalproject_unscanned_Debug /home/sigge/code/cpp/finalproject/GameBoard.cpp || cmake_object_order_depends_target_finalproject
-  DEP_FILE = CMakeFiles/finalproject.dir/GameBoard.cpp.o.d
+build CMakeFiles/finalproject.dir/includes/GameSession.cpp.o: CXX_COMPILER__finalproject_unscanned_Debug /home/sigge/code/cpp/finalproject/includes/GameSession.cpp || cmake_object_order_depends_target_finalproject
+  DEP_FILE = CMakeFiles/finalproject.dir/includes/GameSession.cpp.o.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/finalproject.dir
-  OBJECT_FILE_DIR = CMakeFiles/finalproject.dir
+  OBJECT_FILE_DIR = CMakeFiles/finalproject.dir/includes
 
-build CMakeFiles/finalproject.dir/GameSession.cpp.o: CXX_COMPILER__finalproject_unscanned_Debug /home/sigge/code/cpp/finalproject/GameSession.cpp || cmake_object_order_depends_target_finalproject
-  DEP_FILE = CMakeFiles/finalproject.dir/GameSession.cpp.o.d
+build CMakeFiles/finalproject.dir/includes/Server.cpp.o: CXX_COMPILER__finalproject_unscanned_Debug /home/sigge/code/cpp/finalproject/includes/Server.cpp || cmake_object_order_depends_target_finalproject
+  DEP_FILE = CMakeFiles/finalproject.dir/includes/Server.cpp.o.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/finalproject.dir
-  OBJECT_FILE_DIR = CMakeFiles/finalproject.dir
+  OBJECT_FILE_DIR = CMakeFiles/finalproject.dir/includes
 
-build CMakeFiles/finalproject.dir/History.cpp.o: CXX_COMPILER__finalproject_unscanned_Debug /home/sigge/code/cpp/finalproject/History.cpp || cmake_object_order_depends_target_finalproject
-  DEP_FILE = CMakeFiles/finalproject.dir/History.cpp.o.d
+build CMakeFiles/finalproject.dir/includes/Client.cpp.o: CXX_COMPILER__finalproject_unscanned_Debug /home/sigge/code/cpp/finalproject/includes/Client.cpp || cmake_object_order_depends_target_finalproject
+  DEP_FILE = CMakeFiles/finalproject.dir/includes/Client.cpp.o.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/finalproject.dir
-  OBJECT_FILE_DIR = CMakeFiles/finalproject.dir
-
-build CMakeFiles/finalproject.dir/Server.cpp.o: CXX_COMPILER__finalproject_unscanned_Debug /home/sigge/code/cpp/finalproject/Server.cpp || cmake_object_order_depends_target_finalproject
-  DEP_FILE = CMakeFiles/finalproject.dir/Server.cpp.o.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles/finalproject.dir
-  OBJECT_FILE_DIR = CMakeFiles/finalproject.dir
-
-build CMakeFiles/finalproject.dir/Client.cpp.o: CXX_COMPILER__finalproject_unscanned_Debug /home/sigge/code/cpp/finalproject/Client.cpp || cmake_object_order_depends_target_finalproject
-  DEP_FILE = CMakeFiles/finalproject.dir/Client.cpp.o.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles/finalproject.dir
-  OBJECT_FILE_DIR = CMakeFiles/finalproject.dir
+  OBJECT_FILE_DIR = CMakeFiles/finalproject.dir/includes
 
 
 # =============================================================================
@@ -105,7 +93,7 @@ build CMakeFiles/finalproject.dir/Client.cpp.o: CXX_COMPILER__finalproject_unsca
 #############################################
 # Link the executable finalproject
 
-build finalproject: CXX_EXECUTABLE_LINKER__finalproject_Debug CMakeFiles/finalproject.dir/main.cpp.o CMakeFiles/finalproject.dir/includes/TicTacToe.cpp.o CMakeFiles/finalproject.dir/Player.cpp.o CMakeFiles/finalproject.dir/GameBoard.cpp.o CMakeFiles/finalproject.dir/GameSession.cpp.o CMakeFiles/finalproject.dir/History.cpp.o CMakeFiles/finalproject.dir/Server.cpp.o CMakeFiles/finalproject.dir/Client.cpp.o
+build finalproject: CXX_EXECUTABLE_LINKER__finalproject_Debug CMakeFiles/finalproject.dir/main.cpp.o CMakeFiles/finalproject.dir/includes/Player.cpp.o CMakeFiles/finalproject.dir/includes/GameBoard.cpp.o CMakeFiles/finalproject.dir/includes/GameSession.cpp.o CMakeFiles/finalproject.dir/includes/Server.cpp.o CMakeFiles/finalproject.dir/includes/Client.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/finalproject.dir
   POST_BUILD = :

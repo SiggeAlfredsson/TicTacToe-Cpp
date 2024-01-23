@@ -98,3 +98,27 @@ pc placed X on 2
 SocketPlayer placed O on 1
 pc placed X on 8
 ------------------
+PC vs SocketPlayer - Winner: PC
+moves:
+PC placed X on 5
+SocketPlayer placed O on 3
+PC placed X on 8
+SocketPlayer placed O on 6
+PC placed X on 2
+------------------
+oc vs SocketPlayer - Winner: oc
+moves:
+oc placed X on 8
+SocketPlayer placed O on 7
+oc placed X on 5
+SocketPlayer placed O on 1
+oc placed X on 2
+------------------
+pc vs SocketPlayer - Winner: pc
+moves:
+pc placed X on 8
+SocketPlayer placed O on 7
+pc placed X on 5
+SocketPlayer placed O on 4
+pc placed X on 2
+------------------

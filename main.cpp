@@ -5,6 +5,7 @@
 
 #include "GameSession.h"
 #include "Server.h"
+#include "Client.h"
 
 // server stuff
 #include <iostream>
@@ -81,6 +82,28 @@ int main() {
 
             case 3: {
                 // connect to a server
+
+                Client client;
+
+                std::string ipAddress;
+                int port;
+
+                std::cout << "Enter server IP address: ";
+                std::cin >> ipAddress;
+
+                std::cout << "Enter server port: ";
+                std::cin >> port;
+
+                client.startConnection(ipAddress, port);
+
+                while (true) {
+                    std::string userInput;
+                    std::getline(std::cin, userInput);
+
+                    // Send the user's input to the server
+                    client.sendMessage(userInput);
+                }
+
                 break;
             }
 

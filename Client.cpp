@@ -1,0 +1,64 @@
+//
+// Created by sigge on 2024-01-23.
+//
+
+#include "Client.h"
+
+Client::Client() {
+    clientSocket = socket(AF_INET, SOCK_STREAM, 0);
+    if (clientSocket == -1) {
+        perror("Error creating socket");
+        exit(EXIT_FAILURE);
+    }
+}
+
+Client::~Client() {
+    close(clientSocket);
+}
+
+void Client::startConnection(const std::string& ipAddress, int port) {
+    serverAddress.sin_family = AF_INET;
+    serverAddress.sin_port = htons(port);
+    serverAddress.sin_addr.s_addr = inet_addr(ipAddress.c_str());
+
+    if (connect(clientSocket, (struct sockaddr*)&serverAddress, sizeof(serverAddress)) == -1) {
+        perror("Error connecting to the server");
+        exit(EXIT_FAILURE);
+    }
+
+    // Receive welcome message from the server
+    memset(buffer, 0, sizeof(buffer));
+    recv(clientSocket, buffer, sizeof(buffer), 0);
+    std::cout << buffer << std::endl;
+
+    // Start a separate thread to continuously receive messages
+    std::thread receiveThread(&Client::receiveMessagesThread, this);
+}
+
+void Client::sendMessage(const std::string& message) {
+    // Send the user's input to the server
+    send(clientSocket, message.c_str(), message.size(), 0);
+}
+
+void Client::receiveMessagesThread(Client* client) {
+    client->receiveMessages();
+}
+
+void Client::receiveMessages() {
+    while (true) {
+        // Receive messages from the server
+        ssize_t bytesRead = recv(clientSocket, buffer, sizeof(buffer), 0);
+
+        if (bytesRead <= 0) {
+            // Either an error occurred or the server closed the connection
+            std::cout << "Server disconnected." << std::endl;
+            break;
+        }
+
+        std::cout << buffer << std::endl;
+
+        // Clear the buffer for the next message
+        memset(buffer, 0, sizeof(buffer));
+    }
+}
+

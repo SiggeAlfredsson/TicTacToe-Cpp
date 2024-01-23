@@ -16,4 +16,6 @@ add_executable(finalproject main.cpp
         History.h
         Server.cpp
         Server.h
+        Client.cpp
+        Client.h
 )

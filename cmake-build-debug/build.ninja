@@ -91,6 +91,12 @@ build CMakeFiles/finalproject.dir/Server.cpp.o: CXX_COMPILER__finalproject_unsca
   OBJECT_DIR = CMakeFiles/finalproject.dir
   OBJECT_FILE_DIR = CMakeFiles/finalproject.dir
 
+build CMakeFiles/finalproject.dir/Client.cpp.o: CXX_COMPILER__finalproject_unscanned_Debug /home/sigge/code/cpp/finalproject/Client.cpp || cmake_object_order_depends_target_finalproject
+  DEP_FILE = CMakeFiles/finalproject.dir/Client.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/finalproject.dir
+  OBJECT_FILE_DIR = CMakeFiles/finalproject.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target finalproject
@@ -99,7 +105,7 @@ build CMakeFiles/finalproject.dir/Server.cpp.o: CXX_COMPILER__finalproject_unsca
 #############################################
 # Link the executable finalproject
 
-build finalproject: CXX_EXECUTABLE_LINKER__finalproject_Debug CMakeFiles/finalproject.dir/main.cpp.o CMakeFiles/finalproject.dir/includes/TicTacToe.cpp.o CMakeFiles/finalproject.dir/Player.cpp.o CMakeFiles/finalproject.dir/GameBoard.cpp.o CMakeFiles/finalproject.dir/GameSession.cpp.o CMakeFiles/finalproject.dir/History.cpp.o CMakeFiles/finalproject.dir/Server.cpp.o
+build finalproject: CXX_EXECUTABLE_LINKER__finalproject_Debug CMakeFiles/finalproject.dir/main.cpp.o CMakeFiles/finalproject.dir/includes/TicTacToe.cpp.o CMakeFiles/finalproject.dir/Player.cpp.o CMakeFiles/finalproject.dir/GameBoard.cpp.o CMakeFiles/finalproject.dir/GameSession.cpp.o CMakeFiles/finalproject.dir/History.cpp.o CMakeFiles/finalproject.dir/Server.cpp.o CMakeFiles/finalproject.dir/Client.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/finalproject.dir
   POST_BUILD = :

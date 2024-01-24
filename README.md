@@ -9,8 +9,13 @@ TicTacToe terminal game written in C++ 20
 
 NOTE: a player can also connect to a server via EX telnet
 
+Heap Allocation
+* Player names
+* GameSession moves
+* The GameSession in online games. (i did this just to test the differences, no other reason)
 
-compile 
+
+compile with gcc
 ```bash
 g++ -o app main.cpp includes/*
 

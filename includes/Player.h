@@ -14,8 +14,11 @@ public:
 
     std::string getName() const;
 
+    // for delete the name
+    ~Player();
+
 private:
-    std::string name;
+    std::string* name;
 //    char symbol; not used, but should maybe impl
 };
 

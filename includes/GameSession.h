@@ -17,11 +17,13 @@ class GameSession {
 private:
     Player player1, player2;
     GameBoard board;
-    std::vector<std::string> moves;
+    std::vector<std::string>* moves; // on heap
     Server* server;
 
 public:
     GameSession(const std::string& name1, const std::string& name2);
+    ~GameSession();
+
     void startLocalGame();
     void startOnlineGame(Server& server);
     void saveGameResultToFile(const std::string &filename, bool b);

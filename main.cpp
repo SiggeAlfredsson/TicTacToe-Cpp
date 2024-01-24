@@ -103,7 +103,7 @@ int main() {
 
             case 4: {
                 // read history
-                std::ifstream inputFile("game_history.txt");
+                std::ifstream inputFile("../logs/game_history.txt");
 
                 // print if file could not be opened
                 if (!inputFile.is_open()) {
@@ -140,10 +140,10 @@ int main() {
 }
 
 void clearHistoryFiles() {
-    std::ofstream gameHistoryFile("game_history.txt", std::ofstream::out | std::ofstream::trunc);
+    std::ofstream gameHistoryFile("../logs/game_history.txt", std::ofstream::out | std::ofstream::trunc);
     gameHistoryFile.close();
 
-    std::ofstream serverHistoryFile("server_history.txt", std::ofstream::out | std::ofstream::trunc);
+    std::ofstream serverHistoryFile("../logs/server_history.txt", std::ofstream::out | std::ofstream::trunc);
     serverHistoryFile.close();
 
     std::cout << "History files cleared.\n";

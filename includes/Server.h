@@ -27,10 +27,12 @@ public:
 
 private:
     int port;
-    int hostName;
+//    int hostName; not used
     int serverSocket;
     int clientSocket;
     socklen_t clientLen;
+
+    // standard socket struct from imports, to define socket addresses for both server and client !!
     struct sockaddr_in serverAddress;
     struct sockaddr_in clientAddress;
 

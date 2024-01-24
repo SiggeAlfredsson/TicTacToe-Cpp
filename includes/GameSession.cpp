@@ -6,7 +6,11 @@
 
 
 GameSession::GameSession(const std::string& name1, const std::string& name2)
-        : player1(name1), player2(name2) {
+        : player1(name1), player2(name2), moves(new std::vector<std::string>()) {
+}
+
+GameSession::~GameSession() {
+    delete moves; // release memory
 }
 
 void GameSession::startLocalGame() {
@@ -27,9 +31,9 @@ void GameSession::startLocalGame() {
 
         if (board.makeMove(position, symbol)) {
             if (player1Turn) { // could be imrpoved
-                moves.push_back(player1.getName() + " placed " + symbol + " on " + std::to_string(position));
+                moves->push_back(player1.getName() + " placed " + symbol + " on " + std::to_string(position));
             } else {
-                moves.push_back(player2.getName() + " placed " + symbol + " on " + std::to_string(position));
+                moves->push_back(player2.getName() + " placed " + symbol + " on " + std::to_string(position));
             }
             // successful move
             player1Turn = !player1Turn;
@@ -50,7 +54,7 @@ void GameSession::startLocalGame() {
         std::cout << "It's a draw!\n";
     }
 
-    saveGameResultToFile("./game_history.txt", player1Turn);
+    saveGameResultToFile("../logs/game_history.txt", player1Turn);
 }
 
 void GameSession::startOnlineGame(Server& server) {
@@ -85,10 +89,10 @@ void GameSession::startOnlineGame(Server& server) {
             if (player1Turn) { // could be imrpoved
                 std::string moveMessage = (player1.getName() + " choose " + std::to_string(position) + "\n\r");
                 server.sendMessage(moveMessage.c_str());
-                moves.push_back(player1.getName() + " placed " + symbol + " on " + std::to_string(position));
+                moves->push_back(player1.getName() + " placed " + symbol + " on " + std::to_string(position));
             } else {
                 std::cout << player2.getName() << " choose " << std::to_string(position) + "\n\r";
-                moves.push_back(player2.getName() + " placed " + symbol + " on " + std::to_string(position));
+                moves->push_back(player2.getName() + " placed " + symbol + " on " + std::to_string(position));
             }
             // successful move
             player1Turn = !player1Turn;
@@ -119,7 +123,7 @@ void GameSession::startOnlineGame(Server& server) {
 
     server.closeConnection();
 
-    saveGameResultToFile("./game_history.txt", player1Turn);
+    saveGameResultToFile("../logs/game_history.txt", player1Turn);
 }
 
 
@@ -137,7 +141,7 @@ void GameSession::saveGameResultToFile(const std::string &filename, const bool p
     if (file.is_open()) {
         file << player1.getName() + " vs " + player2.getName() + " - " + result << "\n";
         file << "moves:" << "\n";
-        for (const auto& entry : moves) {
+        for (const auto& entry : *moves) {
             file << entry << "\n";
         }
         file << "------------------" << "\n";

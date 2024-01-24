@@ -107,7 +107,7 @@ void Server::start(const std::string hostName) {
 }
 
 void Server::saveTextToFile(const std::string& text) {
-    std::ofstream file("./server_history.txt", std::ios::app);
+    std::ofstream file("../logs/server_history.txt", std::ios::app);
     if (file.is_open()) {
         file << text << "\n";
         file.close();

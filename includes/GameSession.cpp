@@ -3,10 +3,7 @@
 //
 
 #include "GameSession.h"
-#include "Server.h"
 
-#include <iostream>
-#include <fstream>
 
 GameSession::GameSession(const std::string& name1, const std::string& name2)
         : player1(name1), player2(name2) {

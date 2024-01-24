@@ -13,6 +13,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <fstream>
 
 class Server {
 public:
@@ -25,6 +26,8 @@ public:
 
 
 private:
+    int port;
+    int hostName;
     int serverSocket;
     int clientSocket;
     socklen_t clientLen;
@@ -35,6 +38,7 @@ private:
     void bindSocket();
     void listenForConnections(int port);
     void acceptConnection();
+    void saveTextToFile(const std::string& text);
 };
 
 

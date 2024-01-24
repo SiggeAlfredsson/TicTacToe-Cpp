@@ -15,6 +15,9 @@
 
 // study more what does what
 
+// impl is under main
+void clearHistoryFiles();
+
 
 int main() {
 
@@ -25,8 +28,9 @@ int main() {
         std::cout << "2. Start a online game\n";
         std::cout << "3. Connect to a online game\n";
         std::cout << "4. View your game history\n";
-        std::cout << "5. Exit\n";
-        std::cout << "Enter your choice (1-5): ";
+        std::cout << "5. Clear all history (server and game history)\n";
+        std::cout << "6. Exit\n";
+        std::cout << "Enter your choice (1-6): ";
 
         std::cin >> choice;
 
@@ -114,8 +118,11 @@ int main() {
 
                 break;
             }
-
             case 5: {
+                clearHistoryFiles();
+                break;
+            }
+            case 6: {
                 // exit the program
 //                std::cout << "Thanks for using the program!\n";
                 //do while stops and it exsits loop so no need for cout abow., could do return 0 here too
@@ -126,9 +133,19 @@ int main() {
                 std::cout << "Invalid choice. Please enter a number between 1 and 5.\n";
             }
         }
-    }while(choice != 5);
+    }while(choice != 6);
 
-    std::cout << "Thanks for using the program!\n";
+    std::cout << "Hope you had fun!\n";
     return 0;
+}
+
+void clearHistoryFiles() {
+    std::ofstream gameHistoryFile("game_history.txt", std::ofstream::out | std::ofstream::trunc);
+    gameHistoryFile.close();
+
+    std::ofstream serverHistoryFile("server_history.txt", std::ofstream::out | std::ofstream::trunc);
+    serverHistoryFile.close();
+
+    std::cout << "History files cleared.\n";
 }
 

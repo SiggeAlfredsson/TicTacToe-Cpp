@@ -5,7 +5,7 @@
 #include "Server.h"
 
 //const here supposoble makes the port read only in the functions called from here too.
-Server::Server(const int port) : serverSocket(-1), clientSocket(-1), clientLen(0), serverAddress(), clientAddress() {
+Server::Server(const int port) : serverSocket(-1), clientSocket(-1), clientLen(0), serverAddress(), clientAddress(), port(port) {
     initializeSocket(port);
     bindSocket();
     listenForConnections(port);
@@ -61,7 +61,12 @@ void Server::acceptConnection() {
         exit(EXIT_FAILURE);
     }
 
-    std::cout << "Connection accepted from " << inet_ntoa(clientAddress.sin_addr) << "\n";
+    std::string clientIpAddress = inet_ntoa(clientAddress.sin_addr);
+
+    std::string acceptedConnectionInfo = "SocketPlayer connected from ip:  " + clientIpAddress;
+    std::cout << acceptedConnectionInfo << std::endl;
+    saveTextToFile(acceptedConnectionInfo);
+
 }
 
 void Server::sendMessage(const char* question) { // pointer to question
@@ -89,11 +94,25 @@ void Server::closeConnection() {
     }
 }
 
+// i guess the server is already started but it starts to accept connections ? heh
 void Server::start(const std::string hostName) {
+
+    saveTextToFile("Server started by " + hostName + " on port : " + std::to_string(port));
+
     acceptConnection();
 
     std::string welcomeMessage = ("Welcome to Tic Tac Toe, you play against " + hostName + "\n\r");
 
     sendMessage(welcomeMessage.c_str());
+}
+
+void Server::saveTextToFile(const std::string& text) {
+    std::ofstream file("./server_history.txt", std::ios::app);
+    if (file.is_open()) {
+        file << text << "\n";
+        file.close();
+    } else {
+        std::cerr << "Error: Unable to open file to write server history ! :(";
+    }
 
 }

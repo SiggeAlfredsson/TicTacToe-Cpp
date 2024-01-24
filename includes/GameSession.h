@@ -7,11 +7,11 @@ class Server;
 #ifndef FINALPROJECT_GAMESESSION_H
 #define FINALPROJECT_GAMESESSION_H
 #include "Server.h"
-
-
 #include "Player.h"
 #include "GameBoard.h"
 #include <vector>
+#include <iostream>
+#include <fstream>
 
 class GameSession {
 private:

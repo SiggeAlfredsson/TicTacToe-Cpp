@@ -6,6 +6,7 @@
 #define FINALPROJECT_GAMEBOARD_H
 
 #include <vector>
+#include <iostream>
 
 class GameBoard {
 

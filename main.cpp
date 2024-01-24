@@ -56,7 +56,6 @@ int main() {
                 // begin the game
                 game.startLocalGame();
 
-                // does a game need to be eneded? Deleted?
                 break;
             }
 
@@ -72,11 +71,14 @@ int main() {
                 Server server(port);
                 server.start(player1Name);
 
-                GameSession game(player1Name, "SocketPlayer");
+                GameSession* game = new GameSession(player1Name, "SocketPlayer");
 
-                game.startOnlineGame(server);
+                //start game
+                game->startOnlineGame(server);
 
-                // server is closed in the gameSession after a game is finished.
+                // server is closed in the gameSession after a game is finished. It is also closed in the destructor in gameSession
+                delete game;
+
 
                 break;
             }

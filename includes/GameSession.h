@@ -25,8 +25,6 @@ public:
     void startLocalGame();
     void startOnlineGame(Server& server);
     void saveGameResultToFile(const std::string &filename, bool b);
-//    void loadHistoryFromFile(const std::string& filename);
-//    void displayHistory();
 };
 
 

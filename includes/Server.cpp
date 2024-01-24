@@ -4,10 +4,11 @@
 //
 #include "Server.h"
 
-Server::Server() : serverSocket(-1), clientSocket(-1), clientLen(0), serverAddress(), clientAddress() {
-    initializeSocket();
+//const here supposoble makes the port read only in the functions called from here too.
+Server::Server(const int port) : serverSocket(-1), clientSocket(-1), clientLen(0), serverAddress(), clientAddress() {
+    initializeSocket(port);
     bindSocket();
-    listenForConnections();
+    listenForConnections(port);
 }
 
 
@@ -15,21 +16,23 @@ Server::~Server() {
     closeConnection();
 }
 
-void Server::initializeSocket() {
+void Server::initializeSocket(int port) {
     serverSocket = socket(AF_INET, SOCK_STREAM, 0);
     if (serverSocket == -1) {
         perror("Error creating socket");
         exit(EXIT_FAILURE);
     }
 
-    serverAddress.sin_family = AF_INET;
-    serverAddress.sin_addr.s_addr = INADDR_ANY;
-    serverAddress.sin_port = htons(8888);
+    // server adress setup
+    serverAddress.sin_family = AF_INET; // makes socket work with IPv4 adress
+    serverAddress.sin_addr.s_addr = INADDR_ANY; // allowing it to accept connections from any source ip
+    serverAddress.sin_port = htons(port); // port to bind with
 
     std::cout << "Server socket initialized.\n";
 }
 
 void Server::bindSocket() {
+    // bind socket to specified address and port
     if (bind(serverSocket, (struct sockaddr*)&serverAddress, sizeof(serverAddress)) == -1) {
         perror("Error binding socket");
         close(serverSocket);
@@ -39,14 +42,14 @@ void Server::bindSocket() {
     std::cout << "Server socket bound.\n";
 }
 
-void Server::listenForConnections() {
+void Server::listenForConnections(int port) {
     if (listen(serverSocket, 1) == -1) {
         perror("Error listening for connections");
         close(serverSocket);
         exit(EXIT_FAILURE);
     }
 
-    std::cout << "Server listening for connections on port 8888...\n";
+    std::cout << "Server listening for connections on port " << port << "...\n";
 }
 
 void Server::acceptConnection() {
@@ -61,7 +64,7 @@ void Server::acceptConnection() {
     std::cout << "Connection accepted from " << inet_ntoa(clientAddress.sin_addr) << "\n";
 }
 
-void Server::sendMessage(const char* question) {
+void Server::sendMessage(const char* question) { // pointer to question
     send(clientSocket, question, strlen(question), 0);
 }
 
@@ -86,7 +89,7 @@ void Server::closeConnection() {
     }
 }
 
-void Server::start(std::string hostName) {
+void Server::start(const std::string hostName) {
     acceptConnection();
 
     std::string welcomeMessage = ("Welcome to Tic Tac Toe, you play against " + hostName + "\n\r");

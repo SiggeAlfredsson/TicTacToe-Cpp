@@ -17,18 +17,12 @@ class Client {
 public:
     Client();
     ~Client();
-    void startConnection(const std::string& ipAdress, int port);
-//    void sendMessage(const std::string& message);
-//    void receiveMessages();
+    void startConnection(const std::string& ipAddress,int port);
 
 private:
     int clientSocket;
     sockaddr_in serverAddress;
-    char buffer[256];
-    static void receiveMessages(int clientSocket, bool& serverDisconnected);
-
-//    static void receiveMessagesThread(Client* client);
-
+    static void receiveMessages(int clientSocket, bool& connectedToServer);
 
 };
 

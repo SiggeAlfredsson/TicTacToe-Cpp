@@ -10,8 +10,6 @@
 
 GameSession::GameSession(const std::string& name1, const std::string& name2)
         : player1(name1), player2(name2) {
-
-//    loadHistoryFromFile("./game_history.txt");
 }
 
 void GameSession::startLocalGame() {
@@ -36,7 +34,7 @@ void GameSession::startLocalGame() {
             } else {
                 moves.push_back(player2.getName() + " placed " + symbol + " on " + std::to_string(position));
             }
-                // Move successful
+            // successful move
             player1Turn = !player1Turn;
             moveCounter++;
         } else {
@@ -44,18 +42,17 @@ void GameSession::startLocalGame() {
         }
     }
 
-    // Display the final state of the board
+    // print final board
     std::cout << "Final Board:\n";
     board.printBoard();
 
-    // Check the result
+    // eval result and print
     if (board.checkWin()) {
         std::cout << "Congratulations! " << ((player1Turn) ? player2.getName() : player1.getName()) << " wins!\n";
     } else {
         std::cout << "It's a draw!\n";
     }
 
-    // Save the game history
     saveGameResultToFile("./game_history.txt", player1Turn);
 }
 
@@ -96,7 +93,7 @@ void GameSession::startOnlineGame(Server& server) {
                 std::cout << player2.getName() << " choose " << std::to_string(position) + "\n\r";
                 moves.push_back(player2.getName() + " placed " + symbol + " on " + std::to_string(position));
             }
-            // Move successful
+            // successful move
             player1Turn = !player1Turn;
             moveCounter++;
         } else {
@@ -104,13 +101,13 @@ void GameSession::startOnlineGame(Server& server) {
         }
     }
 
-    // Display the final state of the board
+    // print final board
     std::cout << "Final Board:\n";
     board.printBoard();
     server.sendMessage("Final Board:\n\r");
     server.sendMessage(board.getBoardAsString().c_str());
 
-    // Check the result
+    // eval result and print/send
     if (board.checkWin()) {
         std::string winnerMessage = "Congratulations! " +
                                     ((player1Turn) ? player2.getName() : player1.getName()) +
@@ -125,12 +122,13 @@ void GameSession::startOnlineGame(Server& server) {
 
     server.closeConnection();
 
-    // Save the game history
     saveGameResultToFile("./game_history.txt", player1Turn);
 }
 
-void GameSession::saveGameResultToFile(const std::string &filename, bool player1Turn) {
 
+void GameSession::saveGameResultToFile(const std::string &filename, const bool player1Turn) {
+
+    //eval result again, maybe could save the result in the previus eval but really does not matter
     std::string result;
     if (board.checkWin()) {
         result = "Winner: " + ((player1Turn) ? player2.getName() : player1.getName());
@@ -153,25 +151,3 @@ void GameSession::saveGameResultToFile(const std::string &filename, bool player1
 }
 
 
-//void GameSession::loadHistoryFromFile(const std::string &filename) {
-//    std::ifstream file(filename);
-//    history.clear();
-//
-//    if (file.is_open()) {
-//        std::string entry;
-//        while (std::getline(file, entry)) {
-//            history.push_back(entry);
-//        }
-//        file.close();
-//    } else {
-//        std::cout << "! Could not open file for reading, starting with empty history.." << std::endl;
-//    }
-//}
-//
-//void GameSession::displayHistory() {
-//    // Display the saved game history
-//    std::cout << "Game History:\n";
-//    for (const auto& entry : history) {
-//        std::cout << entry << "\n";
-//    }
-//}

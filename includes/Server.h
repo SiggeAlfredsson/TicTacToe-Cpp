@@ -16,7 +16,7 @@
 
 class Server {
 public:
-    Server();
+    explicit Server(int port); // const makes it read only
     ~Server();
     void start(std::string hostName);
     void sendMessage(const char* question);
@@ -31,13 +31,10 @@ private:
     struct sockaddr_in serverAddress;
     struct sockaddr_in clientAddress;
 
-    void initializeSocket();
+    void initializeSocket(int port);
     void bindSocket();
-    void listenForConnections();
+    void listenForConnections(int port);
     void acceptConnection();
-//    void sendQuestion(const char* question);
-//    int receiveAnswer();
-
 };
 
 

@@ -8,9 +8,10 @@
 #include "includes/Client.h"
 
 
-// Would be nice if a socketplayer could enter their own name but i only got numbers to work
-// client player needs to press enter to get back to the menu
+// Would be nice if a socketplayer could enter their own name but i have yet only got numbers to work
+// client player needs to press enter to get back to the menu ( not that bad )
 // fix so history txt file is not in the cmake folder??
+// port still used sometimes?
 
 // study more what does what
 
@@ -58,16 +59,21 @@ int main() {
             case 2: {
                 //start a server and wait for a second player
                 std::string player1Name;
-
+                int port;
                 // start a new game
-                std::cout << "Enter Player 1 name: ";
+                std::cout << "Enter your player name: ";
                 std::cin >> player1Name;
-                Server server;
+                std::cout << "Enter the port to bind server to; ";
+                std::cin >> port;
+                Server server(port);
                 server.start(player1Name);
 
                 GameSession game(player1Name, "SocketPlayer");
 
                 game.startOnlineGame(server);
+
+                // server is closed in the gameSession after a game is finished.
+
                 break;
             }
 

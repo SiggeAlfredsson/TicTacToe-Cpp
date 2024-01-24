@@ -13,6 +13,7 @@ Heap Allocation
 * Player names
 * GameSession moves
 * The GameSession in online games. (i did this just to test the differences, no other reason)
+- rest is on the stack
 
 
 compile with gcc

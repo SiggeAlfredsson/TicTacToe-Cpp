@@ -1,7 +1,7 @@
 # TicTacToe in C++
 
 TicTacToe terminal game written in C++ 20
-* Locals 1v1
+* Local 1v1s
 * Hostserver to play multiplayer
 * Connect to server
 * Game history

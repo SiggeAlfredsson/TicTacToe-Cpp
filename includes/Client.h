@@ -6,7 +6,6 @@
 #define FINALPROJECT_CLIENT_H
 
 
-#include <string>
 #include <iostream>
 #include <cstring>
 #include <arpa/inet.h>

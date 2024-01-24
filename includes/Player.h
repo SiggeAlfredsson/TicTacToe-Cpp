@@ -6,7 +6,7 @@
 #define FINALPROJECT_PLAYER_H
 
 
-#include <string>
+#include <iostream>
 
 class Player {
 public:

@@ -1,0 +1,8 @@
+Sean vs Banan - Winner: Sean
+moves:
+Sean placed X on 1
+Banan placed O on 2
+Sean placed X on 4
+Banan placed O on 5
+Sean placed X on 7
+------------------

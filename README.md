@@ -7,7 +7,16 @@ TicTacToe terminal game written in C++ 20
 * Game history
 * Server history
 
+
 NOTE: a player can also connect to a server via EX telnet
+
+ 
+What i would want to fix
+* a online player also should be able to enter a name ( not its hardcoded socketplayer )
+* as of now the host of the server always starts the game, should be random maybe?
+* Could create some kind of history class i think that handles filewriting or filehandler class maybe?
+* Better error handling in the server, it exits the program now if error
+
 
 Heap Allocation
 * Player names

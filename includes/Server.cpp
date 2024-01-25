@@ -69,7 +69,7 @@ void Server::acceptConnection() {
 
 }
 
-void Server::sendMessage(const char* question) { // pointer to question
+void Server::sendMessage(const char* question) { // pointer to question , no need to copy whole string
     send(clientSocket, question, strlen(question), 0);
 }
 

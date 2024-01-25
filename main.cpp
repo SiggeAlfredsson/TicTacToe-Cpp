@@ -10,10 +10,9 @@
 
 // Would be nice if a socketplayer could enter their own name but i have yet only got numbers to work
 // client player needs to press enter to get back to the menu ( not that bad )
-// fix so history txt file is not in the cmake folder??
-// port still used sometimes?
+// better history save, with history class?
 
-// study more what does what
+// dive deeper into the server / client
 
 // impl is under main
 void clearHistoryFiles();

@@ -77,7 +77,7 @@ void GameSession::startOnlineGame(Server& server) {
 
         if(!player1Turn) {
             std::cout << "Waiting for other player to enter his choice..." << std::endl;
-            server.sendMessage("Its your tour, enter a position (1-9): \n\r");
+            server.sendMessage("Its your tour, enter a position (1-9): ");
             position = server.receiveAnswer();
         } else {
             server.sendMessage("Waiting for other player to enter his choice...\n\r");
@@ -147,7 +147,7 @@ void GameSession::saveGameResultToFile(const std::string &filename, const bool p
         file << "------------------" << "\n";
         file.close();
     } else {
-        std::cerr << "Error: Unable to open file when saving history!!!! :(";
+        std::cerr << "Error: Unable to open file when saving history!!!! :( \n";
     }
 }
 

@@ -70,12 +70,12 @@ int main() {
                 Server server(port);
                 server.start(player1Name);
 
-                GameSession* game = new GameSession(player1Name, "SocketPlayer");
+                GameSession *game = new GameSession(player1Name, "SocketPlayer");
 
                 //start game
                 game->startOnlineGame(server);
 
-                // server is closed in the gameSession after a game is finished. It is also closed in the destructor in gameSession
+                // server is closed in the gameSession after a game is finished.
                 delete game;
 
 

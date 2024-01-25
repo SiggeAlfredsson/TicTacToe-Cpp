@@ -7,7 +7,7 @@
 #include "GameBoard.h"
 
 GameBoard::GameBoard() {
-    // Initialize the board with numbers representing each cell
+    // initialize the board with numbers representing each cell
     char cellNumber = '1';
     for (int i = 0; i < 3; ++i)
         for (int j = 0; j < 3; ++j)
@@ -65,7 +65,7 @@ bool GameBoard::makeMove(int position, char symbol) {
 }
 
 bool GameBoard::checkWin() const {
-    // this checks all possible wins and checks so they are the same symbol and that symbol is not nothing or != " ";
+    // this checks all possible wins and checks so they are the same symbol and that symbol is not nothing or != " "; i guess it never is nothing tho bcs it has a number from the start?
 
     // straight lines
     for (int i = 0; i < 3; ++i) {
@@ -75,11 +75,11 @@ bool GameBoard::checkWin() const {
             return true;  // columns
     }
 
-    // diagonals
+    // diagonals , only two
     if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != ' ')
-        return true;  // Check main diagonal
+        return true;
     if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != ' ')
-        return true;  // Check reverse diagonal
+        return true;
 
     return false;  // no winner
 }

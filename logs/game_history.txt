@@ -22,3 +22,23 @@ sigge placed X on 4
 SocketPlayer placed O on 5
 sigge placed X on 7
 ------------------
+Sean vs Banan - Winner: Sean
+moves:
+Sean placed X on 1
+Banan placed O on 2
+Sean placed X on 3
+Banan placed O on 4
+Sean placed X on 5
+Banan placed O on 6
+Sean placed X on 7
+------------------
+Sean vs Banan - Winner: Sean
+moves:
+Sean placed X on 1
+Banan placed O on 2
+Sean placed X on 3
+Banan placed O on 4
+Sean placed X on 5
+Banan placed O on 6
+Sean placed X on 7
+------------------

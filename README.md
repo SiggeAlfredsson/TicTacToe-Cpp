@@ -1,3 +1,5 @@
+Jag hinner tyvärr inte impl att ett localt "game" kan sparas och fortsättas vid ett nytt tillfälle, men jag hade sparat gamesession till en fil, i gamesession finns players 1 och 2 samt deras namn, det finns också en gameboard i där som också sparas, så när program hade startats skulle den läst in ifall det fanns ett spel som inte var klart och frågat ifall man ville spela klart det. Missade att det borde vara så men eftersom det är OOP med fina klasser blir det i teorin enkelt att impl, tyvärr åkte jag till fjällen nu ju så inte hunnit men kanske gör det i en annam branch eller något för å testa!
+
 # TicTacToe in C++
 
 TicTacToe terminal game written in C++ 20
